@@ -1,0 +1,8 @@
+@layer components {
+    .column {
+        @apply bg-grey rounded-2xl p-6 w-[300px];
+    }
+    .column-title {
+        @apply text-clear font-bold text-2xl;
+    }
+}

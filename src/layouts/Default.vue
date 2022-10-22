@@ -1,6 +1,5 @@
 <template>
-	<div>
-		This is the default layout
+	<div class="p-5">
 		<slot />
 	</div>
 </template>
