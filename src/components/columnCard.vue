@@ -39,7 +39,6 @@ defineProps({
 })
 
 const cardColorPicker = (data:number) => {
-	console.log(data)
 	switch (data) {
 		case 1:{
 			return 'bg-red'

@@ -3,7 +3,7 @@
         @apply text-4xl font-bold text-center text-clear mb-8;
     }
     .column {
-        @apply bg-grey rounded-lg p-3.5 w-[270px] flex flex-col gap-4 relative;
+        @apply bg-grey rounded-lg p-3.5 w-[var(--column-width)] flex flex-col gap-4 relative;
     }
     .column-title {
         @apply text-clear font-bold text-lg;

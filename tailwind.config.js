@@ -17,7 +17,7 @@ module.exports = {
 				pink: 'var(--pink)'
       },
       gridTemplateColumns: {
-        4: 'repeat(4, minmax(0, 270px))'
+        4: 'repeat(auto-fill, minmax(0, var(--column-width)))'
       }
 		}
   },

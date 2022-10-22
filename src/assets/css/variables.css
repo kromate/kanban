@@ -6,6 +6,7 @@
     --green: #00a88b;
     --purple: #6a6dcd;
     --pink: #c440a1;
+    --column-width: 280px;
 }
 
 /* Dark mode for root variable */
