@@ -13,6 +13,15 @@
 				<icon name="add" class="column-card-header-icon" />
 			</header>
 
+			<ColumnCard
+				v-for="card in dummyData.backlog"
+				:id="card.id"
+				:key="card.id"
+				:title="card.title"
+				:desc="card.desc"
+				:level="card.level"
+				:assignee="card.assignee"
+			/>
 			<div v-for="card in dummyData.backlog" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
 				<icon name="edit" class="column-card-icon" />
 				<h3 class="column-card-title">
@@ -95,6 +104,7 @@
 </template>
 
 <script setup lang="ts">
+import { ColumnCard } from '../../.nuxt/components'
 import { dummyData } from '@/helper/data'
 
 definePageMeta({

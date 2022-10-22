@@ -1,15 +1,15 @@
 <template>
-	<div v-for="card in dummyData.backlog" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
+	<div :class="[cardColorPicker(level), 'column-card']">
 		<icon name="edit" class="column-card-icon" />
 		<h3 class="column-card-title">
-			{{ card.title }}
+			{{ title }}
 		</h3>
 		<p class="column-card-desc">
-			{{ card.desc }}
+			{{ desc }}
 		</p>
 
 		<span class="column-card-badge">
-			{{ card.assignee }}
+			{{ assignee }}
 		</span>
 	</div>
 </template>
@@ -30,13 +30,28 @@ defineProps({
 	},
 	level: {
 		default: 1,
-		type: number
+		type: Number
 	},
 	id: {
 		type: String,
         required: true
 	}
 })
+
+const cardColorPicker = (data:number) => {
+	console.log(data)
+	switch (data) {
+		case 1:{
+			return 'bg-red'
+		}
+		case 2:{
+			return 'bg-purple'
+		}
+		case 3:{
+			return 'bg-green'
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>
