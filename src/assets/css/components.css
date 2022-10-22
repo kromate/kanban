@@ -9,7 +9,7 @@
         @apply text-clear font-bold text-lg;
     }
     .column-card {
-        @apply bg-pink py-4 px-3 rounded flex flex-col gap-2.5 relative;
+        @apply py-4 px-3 rounded flex flex-col gap-2.5 relative;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12), 0px 16px 32px rgba(0, 0, 0, 0.08);
     }
     .column-card-title {
@@ -22,7 +22,7 @@
         @apply w-4 text-clear absolute right-4 cursor-pointer;
     }
     .column-card-header-icon {
-        @apply w-5 text-clear absolute right-4 cursor-pointer border p-1 rounded-full;
+        @apply w-5 text-clear absolute right-4 cursor-pointer border p-px rounded-full;
     }
     .column-card-badge {
         @apply text-clear text-[13px] opacity-75 border self-start px-2 rounded;

@@ -2,6 +2,10 @@
     --clear: #ffffff;
     --black: #000000;
     --grey: #262626;
+    --red: #da3a3a;
+    --green: #00b294;
+    --purple: #7678d1;
+    --pink: #c440a1;
 }
 
 /* Dark mode for root variable */
