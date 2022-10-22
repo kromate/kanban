@@ -30,6 +30,7 @@ export default defineNuxtConfig({
 			postcssOptions: require('./postcss.config.js')
 		}
 	},
+	plugins: ['@/plugins/draggable.ts'],
 	dir: {
 		layouts: './src/layouts',
 		pages: './src/pages',
