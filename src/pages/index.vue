@@ -16,17 +16,18 @@
 			<div v-for="card in dummyData.backlog" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
 				<icon name="edit" class="column-card-icon" />
 				<h3 class="column-card-title">
-					Twilio integration
+					{{ card.title }}
 				</h3>
 				<p class="column-card-desc">
-					Create new note via SMS. Support text, audio, links, and media.
+					{{ card.desc }}
 				</p>
 
 				<span class="column-card-badge">
-					Zainab
+					{{ card.assignee }}
 				</span>
 			</div>
 		</article>
+
 		<article class="column">
 			<header class="flex items-center justify-between w-full">
 				<h1 class="column-title">
@@ -34,6 +35,19 @@
 				</h1>
 				<icon name="add" class="column-card-header-icon" />
 			</header>
+			<div v-for="card in dummyData.todo" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
+				<icon name="edit" class="column-card-icon" />
+				<h3 class="column-card-title">
+					{{ card.title }}
+				</h3>
+				<p class="column-card-desc">
+					{{ card.desc }}
+				</p>
+
+				<span class="column-card-badge">
+					{{ card.assignee }}
+				</span>
+			</div>
 		</article>
 		<article class="column">
 			<header class="flex items-center justify-between w-full">
@@ -42,6 +56,19 @@
 				</h1>
 				<icon name="add" class="column-card-header-icon" />
 			</header>
+			<div v-for="card in dummyData.inprogress" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
+				<icon name="edit" class="column-card-icon" />
+				<h3 class="column-card-title">
+					{{ card.title }}
+				</h3>
+				<p class="column-card-desc">
+					{{ card.desc }}
+				</p>
+
+				<span class="column-card-badge">
+					{{ card.assignee }}
+				</span>
+			</div>
 		</article>
 		<article class="column">
 			<header class="flex items-center justify-between w-full">
@@ -50,6 +77,19 @@
 				</h1>
 				<icon name="add" class="column-card-header-icon" />
 			</header>
+			<div v-for="card in dummyData.done" :key="card.id" :class="[cardColorPicker(card.level), 'column-card']">
+				<icon name="edit" class="column-card-icon" />
+				<h3 class="column-card-title">
+					{{ card.title }}
+				</h3>
+				<p class="column-card-desc">
+					{{ card.desc }}
+				</p>
+
+				<span class="column-card-badge">
+					{{ card.assignee }}
+				</span>
+			</div>
 		</article>
 	</main>
 </template>

@@ -2,9 +2,9 @@
     --clear: #ffffff;
     --black: #000000;
     --grey: #262626;
-    --red: #da3a3a;
-    --green: #00b294;
-    --purple: #7678d1;
+    --red: #d93535;
+    --green: #00a88b;
+    --purple: #6a6dcd;
     --pink: #c440a1;
 }
 
@@ -14,9 +14,9 @@
         --clear: #ffffff;
         --black: #000000;
         --grey: #262626;
-        --red: #da3a3a;
-        --green: #00b294;
-        --purple: #7678d1;
+        --red: #d93535;
+        --green: #00a88b;
+        --purple: #6a6dcd;
         --pink: #c440a1;
     }
 }
