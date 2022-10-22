@@ -1,8 +1,30 @@
 @layer components {
+    .board-title {
+        @apply text-4xl font-bold text-center text-clear mb-8;
+    }
     .column {
-        @apply bg-grey rounded-2xl p-6 w-[300px];
+        @apply bg-grey rounded-lg p-3.5 w-[270px] flex flex-col gap-4 relative;
     }
     .column-title {
-        @apply text-clear font-bold text-2xl;
+        @apply text-clear font-bold text-lg;
+    }
+    .column-card {
+        @apply bg-pink py-4 px-3 rounded flex flex-col gap-2.5 relative;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12), 0px 16px 32px rgba(0, 0, 0, 0.08);
+    }
+    .column-card-title {
+        @apply text-clear font-semibold;
+    }
+    .column-card-desc {
+        @apply text-clear text-sm opacity-75;
+    }
+    .column-card-icon {
+        @apply w-4 text-clear absolute right-4 cursor-pointer;
+    }
+    .column-card-header-icon {
+        @apply w-5 text-clear absolute right-4 cursor-pointer border p-1 rounded-full;
+    }
+    .column-card-badge {
+        @apply text-clear text-[13px] opacity-75 border self-start px-2 rounded;
     }
 }

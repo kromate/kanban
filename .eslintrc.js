@@ -26,6 +26,7 @@ module.exports = {
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-tabs': 'off',
 		'no-unused-vars': 'off',
+		'vue/no-multiple-template-root': 'off',
 		'import/no-named-as-default': 'off',
 		'vue/no-template-shadow': 'off',
 		'no-var': 'error',

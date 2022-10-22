@@ -3,6 +3,9 @@
 /* eslint-disable */
 
 export enum IconNames {
+  'add' = 'add',
   'arrowForward' = 'arrowForward',
-  'invoice' = 'invoice'
+  'edit' = 'edit',
+  'invoice' = 'invoice',
+  'note' = 'note'
 }
