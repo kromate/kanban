@@ -25,7 +25,7 @@
 <script setup lang="ts">
 const emit = defineEmits(['change'])
 const updateParent = (e) => {
-	emit('change', { type: props.title, data: e })
+	emit('change', { type: props.title, data: props.cards })
 }
 const props = defineProps({
 	title: {

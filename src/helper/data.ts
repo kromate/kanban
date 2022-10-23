@@ -55,3 +55,10 @@ export const dummyData: Ref<boardType> = useStorage('DemoKanbanBoard', {
 	],
 	done: []
 })
+
+export const keys = {
+		Backlog: 'backlog',
+	'To do': 'todo',
+	'In progress': 'inprogress',
+	Done: 'done'
+}

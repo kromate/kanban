@@ -12,10 +12,12 @@
 </template>
 
 <script setup lang="ts">
-import { dummyData } from '@/helper/data'
+import { dummyData, keys } from '@/helper/data'
 const updateData = (e) => {
-	console.log(e)
+const changedArray = keys[e.type]
+	console.log(e, dummyData.value[changedArray])
 }
+
 const columns = [
 	{ title: 'Backlog', id: 'backlog' },
 	{ title: 'To do', id: 'todo' },
