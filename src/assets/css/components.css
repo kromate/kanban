@@ -37,13 +37,16 @@
         @apply bg-grey flex flex-col items-start gap-4  py-8 md:px-12 px-8 rounded-md w-[470px] max-w-[90%];
     }
     .modal-title {
-        @apply font-medium text-xl text-start w-full text-clear border-b border-line pb-2 mb-3;
+        @apply font-medium text-xl text-start w-full text-clear border-b border-line pb-2;
     }
     .modal-label {
         @apply text-start w-full text-clear;
     }
     .modal-input {
         @apply rounded px-4 py-2 bg-line outline-none focus:border border-gray-100 transition-all duration-75 text-clear;
+    }
+    .modal-btn {
+        @apply rounded px-4 py-2 bg-primary text-clear w-full;
     }
     .field {
         @apply flex flex-col w-full gap-2 my-4;

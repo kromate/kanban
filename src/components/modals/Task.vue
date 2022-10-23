@@ -17,16 +17,48 @@
 					class="modal-input"
 				>
 			</div>
-
-			<span class="relative top-0 right-0 block">
-				<button
-
-					type="submit"
-					class="flex justify-center items-center w-32 h-12 px-8 text-base font-bold leading-6 text-white transition duration-150 ease-in-out bg-indigo-700 focus:outline-none active:bg-indigo-700"
+			<div class="field">
+				<label for="description" class="modal-label">Description </label>
+				<textarea
+					id="description"
+					required
+					rows="3"
+					type="text"
+					placeholder="Enter Description"
+					class="modal-input"
+				/>
+			</div>
+			<div class="field">
+				<label for="level" class="modal-label">Level </label>
+				<select id="level" name="level" class="modal-input" required>
+					<option disabled selected class="text-line">
+						Select Level
+					</option>
+					<option value="1">
+						level 1 (critical)
+					</option>
+					<option value="2">
+						level 2 (important)
+					</option>
+					<option value="3">
+						level 3 (normal)
+					</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="assignee" class="modal-label">Assignee </label>
+				<input
+					id="assignee"
+					required
+					type="text"
+					placeholder="Enter Assignee"
+					class="modal-input"
 				>
-					Save
-				</button>
-			</span>
+			</div>
+
+			<button class="modal-btn" @click="create">
+				<span v-if="!loading"> {{ ticketState.title.value.split(' ')[0] }}</span>  <Spinner v-else />
+			</button>
 		</form>
 	</Modal>
 </template>

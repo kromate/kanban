@@ -1,7 +1,7 @@
 :root {
     --primary: #121928;
     --clear: #ffffff;
-    --black: #000000;
+    --night: #000000;
     --grey: #262626;
     --line: #737882c9;
     --red: #d93535;
@@ -16,7 +16,7 @@
     :root {
         --primary: #121928;
         --clear: #ffffff;
-        --black: #000000;
+        --night: #000000;
         --grey: #262626;
         --line: #737882c9;
         --red: #d93535;

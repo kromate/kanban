@@ -5,5 +5,10 @@
 }
 
 html {
-    @apply bg-black;
+    @apply bg-night;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
 }
