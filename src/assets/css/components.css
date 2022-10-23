@@ -46,7 +46,7 @@
         @apply rounded px-4 py-2 bg-line outline-none focus:border border-gray-100 transition-all duration-75 text-clear;
     }
     .modal-btn {
-        @apply rounded px-4 py-2 bg-primary text-clear w-full mt-4 flex justify-center;
+        @apply rounded px-4 py-2 bg-primary text-clear w-full mt-6 flex justify-center;
     }
     .field {
         @apply flex flex-col w-full gap-2 my-4;
