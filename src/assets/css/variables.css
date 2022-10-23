@@ -1,22 +1,24 @@
 :root {
+    --primary: #121928;
     --clear: #ffffff;
     --black: #000000;
     --grey: #262626;
-    --line: #737882;
+    --line: #737882c9;
     --red: #d93535;
     --green: #00a88b;
     --purple: #6a6dcd;
     --pink: #c440a1;
-    --column-width: 280px;
+    --column-width: 300px;
 }
 
 /* Dark mode for root variable */
 @media (prefers-color-scheme: dark) {
     :root {
+        --primary: #121928;
         --clear: #ffffff;
         --black: #000000;
         --grey: #262626;
-        --line: #737882;
+        --line: #737882c9;
         --red: #d93535;
         --green: #00a88b;
         --purple: #6a6dcd;

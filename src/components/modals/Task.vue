@@ -7,13 +7,17 @@
 			class="task-modal"
 			@submit.prevent=""
 		>
-			<input
-				required
-				type="text"
-				name="search"
-				placeholder="Title of Page"
-				class="w-full h-12 px-3 py-2 font-medium text-indigo-800 focus:outline-none"
-			>
+			<div class="field">
+				<label for="title" class="modal-label">Title </label>
+				<input
+					id="title"
+					required
+					type="text"
+					placeholder="Enter Title"
+					class="modal-input"
+				>
+			</div>
+
 			<span class="relative top-0 right-0 block">
 				<button
 
@@ -26,10 +30,10 @@
 		</form>
 	</Modal>
 </template>
-
+~~/src/composables/ticket
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-import { ticketState } from '@/composables/core/ticket'
+import { ticketState } from '@/composables/ticket'
 
 </script>
 

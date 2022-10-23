@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { createTicket } from '@/composables/core/ticket'
+import { createTicket } from '~~/src/composables/ticket'
 const emit = defineEmits(['change'])
 const updateParent = (e) => {
 	emit('change', { type: props.title, data: props.cards })

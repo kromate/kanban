@@ -9,7 +9,7 @@
 				<span class="modal-title">
 					{{ title }}
 				</span>
-				<div>
+				<div class="w-full">
 					<slot />
 				</div>
 			</div>

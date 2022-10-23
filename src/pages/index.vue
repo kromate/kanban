@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<header class="flex flex-col">
+		<header class="flex flex-col px-4">
 			<h1 class="board-title">
 				{{ dummyData.title }}
 			</h1>
