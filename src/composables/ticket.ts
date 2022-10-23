@@ -1,11 +1,21 @@
-import { useTaskModal } from './core/modals'
+import { useTicketModal } from './core/modals'
 
-export const ticketState = {
-    title: ref('')
+const taskModalState = {
+  title: ref('')
 }
 
-export const createTicket = (ticketType) => {
+export const useTicket = () => {
+    const loading = ref(false)
+    const createTicket = () => {
+        loading.value = true
+        // do something
+        loading.value = false
+    }
+    return { loading, createTicket, taskModalState }
+ }
+
+export const openTicketModal = (ticketType) => {
     console.log(ticketType)
-    ticketState.title.value = `Create ${ticketType} Ticket`
-    useTaskModal().openTask()
+    taskModalState.title.value = `Create "${ticketType}" Ticket`
+    useTicketModal().openTicket()
 }

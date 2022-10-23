@@ -1,12 +1,12 @@
 import { ref } from 'vue'
 import { useModal } from './modal'
-import Task from '@/components/modals/Task.vue'
+import Ticket from '@/components/modals/Ticket.vue'
 
-type TaskTypes = 'Task'
+type TicketTypes = 'Ticket'
 
-const TaskModals = { Task } as Record<TaskTypes, any>
+const TicketModals = { Ticket } as Record<TicketTypes, any>
 
 export const modal = useModal(ref([] as any))
-const taskModal = modal.register('Task', TaskModals)
+const ticketModal = modal.register('Ticket', TicketModals)
 
-export const useTaskModal = () => taskModal
+export const useTicketModal = () => ticketModal

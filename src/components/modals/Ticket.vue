@@ -1,7 +1,7 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		:title="ticketState.title.value"
+		:title="taskModalState.title.value"
 	>
 		<form
 			class="task-modal"
@@ -57,7 +57,7 @@
 			</div>
 
 			<button class="modal-btn" @click="create">
-				<span v-if="!loading"> {{ ticketState.title.value.split(' ')[0] }}</span>  <Spinner v-else />
+				<span v-if="!loading"> {{ taskModalState.title.value.split(' ')[0] }}</span>  <Spinner v-else />
 			</button>
 		</form>
 	</Modal>
@@ -65,8 +65,9 @@
 ~~/src/composables/ticket
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-import { ticketState } from '@/composables/ticket'
+import { useTicket } from '@/composables/ticket'
 
+const { createTicket, loading, taskModalState } = useTicket()
 </script>
 
 <style>
