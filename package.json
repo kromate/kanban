@@ -41,6 +41,7 @@
 	},
 	"dependencies": {
 		"@vueuse/core": "^9.3.1",
+		"@vueuse/nuxt": "^9.3.1",
 		"firebase": "^9.12.1",
 		"uuid": "^9.0.0",
 		"vuedraggable": "^4.1.0"

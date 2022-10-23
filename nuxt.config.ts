@@ -13,11 +13,17 @@ export default defineNuxtConfig({
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{ name: 'format-detection', content: 'telephone=no' }
 		],
-		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }, { href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap' }]
+		link: [
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+			{
+				href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'
+			}
+		]
 	},
 	alias: {
 		'@': './src'
 	},
+	modules: ['@vueuse/nuxt'],
 
 	css: ['/src/assets/css/main.css'],
 	components: [
@@ -38,10 +44,10 @@ export default defineNuxtConfig({
 	},
 	vite: {
 		plugins: [eslintPlugin({ useEslintrc: true })],
-				resolve: {
-		alias: {
-			'@': fileURLToPath(new URL('./src', import.meta.url))
+		resolve: {
+			alias: {
+				'@': fileURLToPath(new URL('./src', import.meta.url))
+			}
 		}
-	}
 	}
 })

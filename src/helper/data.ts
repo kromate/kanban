@@ -1,23 +1,8 @@
-interface boardType {
-	id: string;
-	title: string;
-	backlog: taskType[];
-	todo: taskType[];
-	inprogress: taskType[];
-	done: taskType[];
-}
+import { useStorage } from '@vueuse/core'
+import { Ref } from 'vue'
+import { boardType } from './type'
 
-type levelType = 1 | 2 | 3;
-
-interface taskType {
-	id: string;
-	title: string;
-	desc: string;
-	level: levelType;
-	assignee:string;
-}
-
-export const dummyData: boardType = {
+export const dummyData: Ref<boardType> = useStorage('DemoKanbanBoard', {
 	id: '123456789',
 	title: 'Demo Kanban Board',
 	backlog: [
@@ -52,8 +37,8 @@ export const dummyData: boardType = {
 			assignee: 'Kromate'
 		}
 	],
-    inprogress: [
-        {
+	inprogress: [
+		{
 			id: '5',
 			title: 'Demo Task five',
 			desc: 'This is a demo task five',
@@ -67,6 +52,6 @@ export const dummyData: boardType = {
 			level: 2,
 			assignee: 'Kromate'
 		}
-    ],
+	],
 	done: []
-}
+})

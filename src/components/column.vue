@@ -7,7 +7,7 @@
 			<icon name="add" class="column-card-header-icon" />
 		</header>
 
-		<draggable v-model="cards" group="kanban" :item-key="title" class="flex flex-col gap-4" @change="log">
+		<draggable v-model="cards" group="kanban" :item-key="title" class="flex flex-col gap-4" @change="updateParent">
 			<template #item="{element}">
 				<ColumnCard
 					:id="element.id"
@@ -23,10 +23,10 @@
 </template>
 
 <script setup lang="ts">
- const log = (e) => {
-  console.log(e, props.cards)
+const emit = defineEmits(['change'])
+const updateParent = (e) => {
+	emit('change', { type: props.title, data: e })
 }
-
 const props = defineProps({
 	title: {
 		default: 'default Title',
