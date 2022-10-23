@@ -11,12 +11,8 @@
 		<draggable v-model="cards" group="kanban" :item-key="title" class="flex flex-col gap-4" @change="updateParent">
 			<template #item="{element}">
 				<ColumnCard
-					:id="element.id"
 					:key="element.id"
-					:title="element.title"
-					:desc="element.desc"
-					:level="element.level"
-					:assignee="element.assignee"
+					:card="element"
 				/>
 			</template>
 		</draggable>

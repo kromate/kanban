@@ -1,45 +1,33 @@
 <template>
-	<div :class="[cardColorPicker(level), 'column-card']">
-		<icon name="edit" class="column-card-icon" />
+	<div :class="[cardColorPicker(card.level), 'column-card']">
+		<icon name="edit" class="column-card-icon" @click="editTicket(card)" />
 		<h3 class="column-card-title">
-			{{ title }}
+			{{ card.title }}
 		</h3>
 		<p class="column-card-desc">
-			{{ desc }}
+			{{ card.desc }}
 		</p>
 
 		<span class="column-card-badge">
-			{{ assignee }}
+			{{ card.assignee }}
 		</span>
 	</div>
 </template>
 
 <script lang="ts" setup>
+import { useEditTicket } from '@/composables/ticket'
+
+const { editTicket, loading } = useEditTicket()
+
 defineProps({
-	title: {
-		default: 'default Title',
-		type: String
-	},
-	desc: {
-		default: 'default Desc',
-		type: String
-	},
-	assignee: {
-		default: 'default assignee',
-		type: String
-	},
-	level: {
-		default: 1,
-		type: Number
-	},
-	id: {
-		type: String,
-        required: true
+	card: {
+		default: () => {},
+		type: Object
 	}
+
 })
 
 const cardColorPicker = (data:number) => {
-	console.log(data)
 	switch (data) {
 		case 1:{
 			return 'bg-red'
