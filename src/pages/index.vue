@@ -1,9 +1,12 @@
 <template>
 	<div>
-		<header>
+		<header class="flex flex-col">
 			<h1 class="board-title">
 				{{ dummyData.title }}
 			</h1>
+			<h3 class="board-desc">
+				{{ dummyData.desc }}
+			</h3>
 		</header>
 		<main class="grid grid-cols-4 gap-6 justify-center items-start">
 			<Column v-for="column in columns" :key="column.title" :title="column.title" :cards="dummyData[column.id]" @change="updateData" />
@@ -15,7 +18,8 @@
 import { dummyData, keys } from '@/helper/data'
 const updateData = (e) => {
 const changedArray = keys[e.type]
-	console.log(e, dummyData.value[changedArray])
+dummyData.value[changedArray] = e.data
+	// console.log(e.data, dummyData.value[changedArray])
 }
 
 const columns = [

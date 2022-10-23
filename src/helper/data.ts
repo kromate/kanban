@@ -5,6 +5,7 @@ import { boardType } from './type'
 export const dummyData: Ref<boardType> = useStorage('DemoKanbanBoard', {
 	id: '123456789',
 	title: 'Demo Kanban Board',
+	desc: 'this is a description for the Demo Kanban Board',
 	backlog: [
 		{
 			id: '1',

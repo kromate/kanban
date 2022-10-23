@@ -1,6 +1,7 @@
 export interface boardType {
 	id: string;
 	title: string;
+	desc: string;
 	backlog: taskType[];
 	todo: taskType[];
 	inprogress: taskType[];
