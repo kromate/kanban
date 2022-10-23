@@ -2,28 +2,17 @@
 	<transition name="slide" appear :duration="500">
 		<div
 			:close="closeModal"
-			class="bg transition-all"
+			class="bg-modal transition-all"
+			@click="close"
 		>
-			<transition
-				appear
-				@before-enter="beforeEnter"
-				@leave="onLeave"
-				@enter="enter"
-			>
-				<div class="h-60 bg-white   py-4 px-6 rounded-lg overflow-hidden shadow-xl transform transition-all w-full max-w-[76%] sm:max-w-lg ">
-					<div class="flex w-full justify-between">
-						<div class="flex flex-col items-center relative w-full">
-							<div class="w-full flex">
-								<a class="las la-times absolute right-[10px] cursor-pointer text-xl" @click.prevent="closeModal" />
-								<span class="font-semibold text-2xl text-center w-full">
-									{{ title }}
-								</span>
-							</div>
-							<slot />
-						</div>
-					</div>
+			<div class="modal">
+				<span class="modal-title">
+					{{ title }}
+				</span>
+				<div>
+					<slot />
 				</div>
-			</transition>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -38,43 +27,25 @@ const props = defineProps({
 		required: true
 	},
 	title: {
+		default: 'Default Title',
 		type: String,
 		required: false
 	}
 })
 
+const close = (e) => {
+if (e.target.className.includes('bg-modal')) return closeModal()
+}
+
 const closeModal = () => {
 	modal.close(props.modal)
-}
-const timeline = gsap.timeline({ defaults: { duration: 0.5 } })
-const beforeEnter = (el) => {
-			  el.style.opacity = 0
-	el.style.transform = 'scale(0.5)'
-}
-const enter = (el, done) => {
-	timeline.to(el, {
-		opacity: 1,
-		y: 0,
-		scale: 1,
-		duration: 0.35,
-		onComplete: done
-	})
-}
-const onLeave = (el, done) => {
-	gsap.to(el, {
-		opacity: 0,
-		y: 0,
-		scale: 0.1,
-		duration: 0.35,
-		onComplete: done
-	})
 }
 
 </script>
 
 <style scoped>
 
-.bg {
+.bg-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -86,7 +57,8 @@ const onLeave = (el, done) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
+  backdrop-filter: blur(1.5px);
+
 }
 
 .slide-enter-active,

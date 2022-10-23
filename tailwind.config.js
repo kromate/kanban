@@ -14,7 +14,8 @@ module.exports = {
 				red: 'var(--red)',
 				green: 'var(--green)',
 				purple: 'var(--purple)',
-				pink: 'var(--pink)'
+				pink: 'var(--pink)',
+				line: 'var(--line)'
       },
       gridTemplateColumns: {
         4: 'repeat(auto-fill, minmax(0, var(--column-width)))'

@@ -30,4 +30,13 @@
     .column-card-badge {
         @apply text-clear text-[13px] opacity-75 border self-start px-2 rounded;
     }
+    .task-modal-form {
+        @apply flex flex-col;
+    }
+    .modal {
+        @apply bg-grey flex flex-col items-start gap-4  py-8 md:px-12 px-8 rounded-md w-[470px] max-w-[90%];
+    }
+    .modal-title {
+        @apply font-medium text-xl text-start w-full text-clear border-b pb-2;
+    }
 }

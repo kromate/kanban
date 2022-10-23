@@ -1,14 +1,13 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		title="Save Page"
+		:title="ticketState.title.value"
 	>
 		<form
-			class="relative flex items-center max-w-sm w-full mx-auto mt-12 overflow-hidden text-center rounded-md border-2 border-primary"
-			@submit.prevent="savepageBlock"
+			class="task-modal"
+			@submit.prevent=""
 		>
 			<input
-				v-model="pageTitle"
 				required
 				type="text"
 				name="search"
@@ -30,8 +29,7 @@
 
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-
-import { savepageBlock, pageTitle } from '@/firebase/firestore'
+import { ticketState } from '@/composables/core/ticket'
 
 </script>
 
