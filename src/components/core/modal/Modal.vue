@@ -6,8 +6,9 @@
 			@click="close"
 		>
 			<div class="modal">
-				<span class="modal-title">
+				<span class="modal-title flex justify-between w-full items-center">
 					{{ title }}
+					<icon name="close" class="text-white w-7 cursor-pointer" @click="closeModal()" />
 				</span>
 				<div class="w-full">
 					<slot />

@@ -1,16 +1,17 @@
 <template>
 	<Modal
 		modal="$atts.modal"
-		:title="taskModalState.title.value"
+		:title="taskModalState.modal_title.value"
 	>
 		<form
 			class="task-modal"
-			@submit.prevent=""
+			@submit.prevent="createTicket"
 		>
 			<div class="field">
 				<label for="title" class="modal-label">Title </label>
 				<input
 					id="title"
+					v-model="taskModalState.title.value"
 					required
 					type="text"
 					placeholder="Enter Title"
@@ -21,6 +22,7 @@
 				<label for="description" class="modal-label">Description </label>
 				<textarea
 					id="description"
+					v-model="taskModalState.desc.value"
 					required
 					rows="3"
 					type="text"
@@ -30,8 +32,8 @@
 			</div>
 			<div class="field">
 				<label for="level" class="modal-label">Level </label>
-				<select id="level" name="level" class="modal-input" required>
-					<option disabled selected class="text-line">
+				<select id="level" v-model="taskModalState.level.value" name="level" class="modal-input" required>
+					<option disabled select class="text-line" value="" selected>
 						Select Level
 					</option>
 					<option value="1">
@@ -49,6 +51,7 @@
 				<label for="assignee" class="modal-label">Assignee </label>
 				<input
 					id="assignee"
+					v-model="taskModalState.assignee.value"
 					required
 					type="text"
 					placeholder="Enter Assignee"
@@ -56,8 +59,8 @@
 				>
 			</div>
 
-			<button class="modal-btn" @click="create">
-				<span v-if="!loading"> {{ taskModalState.title.value.split(' ')[0] }}</span>  <Spinner v-else />
+			<button class="modal-btn">
+				<span v-if="!loading"> {{ taskModalState.modal_title.value.split(' ')[0] }}</span>  <Spinner v-else />
 			</button>
 		</form>
 	</Modal>
