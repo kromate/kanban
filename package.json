@@ -40,9 +40,9 @@
 		"vite-plugin-eslint": "^1.7.0"
 	},
 	"dependencies": {
+		"@vueuse/core": "^9.3.1",
 		"firebase": "^9.12.1",
 		"uuid": "^9.0.0",
-		"vue-draggable-next": "^2.1.1",
 		"vuedraggable": "^4.1.0"
 	}
 }

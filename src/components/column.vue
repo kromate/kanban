@@ -7,7 +7,7 @@
 			<icon name="add" class="column-card-header-icon" />
 		</header>
 
-		<draggable :list="cards" group="kanban" :item-key="title" class="flex flex-col gap-4" @change="log">
+		<draggable v-model="cards" group="kanban" :item-key="title" class="flex flex-col gap-4" @change="log">
 			<template #item="{element}">
 				<ColumnCard
 					:id="element.id"
@@ -24,21 +24,10 @@
 
 <script setup lang="ts">
  const log = (e) => {
-  console.log(e)
+  console.log(e, props.cards)
 }
 
- const list1 = [
-        { name: 'John', id: 1 },
-        { name: 'Joao', id: 2 },
-        { name: 'Jean', id: 3 },
-        { name: 'Gerard', id: 4 }
-      ]
- const list2 = [
-        { name: 'Juan', id: 5 },
-        { name: 'Edgard', id: 6 },
-        { name: 'Johnson', id: 7 }
-      ]
-defineProps({
+const props = defineProps({
 	title: {
 		default: 'default Title',
 		type: String
