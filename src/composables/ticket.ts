@@ -42,18 +42,27 @@ export const useTicket = () => {
 
 export const useEditTicket = () => {
 	const loading = ref(false)
-	const editTicket = (data) => {
+	const openEditTicket = (data, title) => {
 		loading.value = true
-		console.log(data)
+		taskModalState.type.value = title
+		taskModalState.title.value = data.title
+		taskModalState.desc.value = data.desc
+		taskModalState.level.value = data.level
+		taskModalState.assignee.value = data.assignee
+
+		openTicketModal(data.title, true)
 		loading.value = false
-		useTicketModal().closeTicket()
-		clearTaskModalState()
 	}
-	return { loading, editTicket }
+	return { loading, openEditTicket }
 }
 
-export const openTicketModal = (ticketType) => {
-	taskModalState.type.value = keys[ticketType]
-	taskModalState.modal_title.value = `Create "${ticketType}" Ticket`
+export const openTicketModal = (ticketType, edit = false) => {
+	if (edit) {
+		taskModalState.modal_title.value = `Edit "${ticketType}" Ticket`
+	} else {
+		taskModalState.type.value = keys[ticketType]
+		taskModalState.modal_title.value = `Create "${ticketType}" Ticket`
+	}
+
 	useTicketModal().openTicket()
 }
