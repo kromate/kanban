@@ -57,8 +57,6 @@ export const useEditTicket = () => {
 
 	const editTicket = () => {
 		loading.value = true
-		console.log(taskModalState.type.value)
-		console.log(dummyData.value[taskModalState.type.value])
 		const index = dummyData.value[taskModalState.type.value].findIndex((item) => item.id === taskModalState.id.value)
 		dummyData.value[taskModalState.type.value][index].title = taskModalState.title.value
 		dummyData.value[taskModalState.type.value][index].desc = taskModalState.desc.value

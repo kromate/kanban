@@ -19,7 +19,6 @@ import { dummyData, keys } from '@/helper/data'
 const updateData = (e) => {
 const changedArray = keys[e.type]
 dummyData.value[changedArray] = e.data
-	// console.log(e.data, dummyData.value[changedArray])
 }
 
 const columns = [
