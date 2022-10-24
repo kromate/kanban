@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAlert } from '@/composables/useNotification'
+import { useAlert } from '~~/src/composables/core/useNotification'
 
 const { active, message, closeAlert } = useAlert()
 </script>

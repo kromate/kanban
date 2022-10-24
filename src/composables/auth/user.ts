@@ -1,8 +1,14 @@
 import { User } from '@firebase/auth'
 import { useStorage } from '@vueuse/core'
 // import { FirebaseUserType } from './types'
+import { Ref } from 'vue'
+interface globalStateType {
+    userString: Ref<string>,
+    user: User,
+    isLoggedIn: Ref<boolean>
+}
 
-const globalState = {
+const globalState:globalStateType = {
     userString: useStorage('userString', null),
     user: useStorage('userString', '').value ? JSON.parse(useStorage('userString', '').value) as User : undefined,
     isLoggedIn: useStorage('isLoggedIn', false)

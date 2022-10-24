@@ -1,7 +1,7 @@
 import { FirebaseUserType } from './types'
 import { useUser } from '@/composables/auth/user'
 import { googleAuth, signOutUser } from '@/firebase/auth'
-import { useAlert, useLoading } from '@/composables/useNotification'
+import { useAlert, useLoading } from '~~/src/composables/core/useNotification'
 
 export const useSignin = () => {
     const googleSignin = async () => {

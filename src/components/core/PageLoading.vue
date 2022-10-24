@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { useLoading } from '@/composables/useNotification'
+import { useLoading } from '~~/src/composables/core/useNotification'
 export default {
 	name: 'LoaderComponent',
 	setup() {

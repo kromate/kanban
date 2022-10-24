@@ -16,7 +16,7 @@
 						Sign in
 					</button>
 
-					<button class="home-btn">
+					<button class="home-btn" @click="useBoardModal().openCreateBoard()">
 						Create Board
 					</button>
 					<nuxt-link v-if="isLoggedIn" :to="`/user/${user}`" class="home-btn">
@@ -41,6 +41,7 @@
 <script lang="ts" setup>
 import { useSignin } from '@/composables/auth/auth'
 import { useUser } from '@/composables/auth/user'
+import { useBoardModal } from '@/composables/core/modals'
 const { googleSignin, signOut } = useSignin()
 const { isLoggedIn, user } = useUser()
 
