@@ -2,11 +2,11 @@
 	<transition appear name="slide">
 		<div
 			v-if="active"
-			class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4 bg-white z-[150] text w-[22rem] bg"
+			class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4  z-[150] text w-[22rem] bg-primary text-clear"
 		>
 			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0" />
 			<svg
-				class="w-6 h-6 text-gray-700 absolute right-1 top-0 cursor-pointer text-xl"
+				class="w-6 h-6 text-clear absolute right-1 top-0 cursor-pointer text-xl"
 				fill="none"
 				stroke="currentColor"
 				viewBox="0 0 24 24"
