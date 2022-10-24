@@ -24,6 +24,9 @@
     .column-card-icon {
         @apply w-4 text-clear absolute right-4 cursor-pointer;
     }
+    .column-card-icon-del {
+        @apply w-4 text-clear absolute right-10 cursor-pointer;
+    }
     .column-card-header-icon {
         @apply w-5 text-clear absolute right-4 cursor-pointer border p-px rounded-full;
     }

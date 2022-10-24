@@ -1,6 +1,7 @@
 <template>
 	<div :class="[cardColorPicker(card.level), 'column-card']">
 		<icon name="edit" class="column-card-icon" @click="openEditTicket(card, title)" />
+		<icon name="delete" class="column-card-icon-del" @click="openEditTicket(card, title)" />
 		<h3 class="column-card-title">
 			{{ card.title }}
 		</h3>

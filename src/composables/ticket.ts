@@ -76,8 +76,20 @@ export const openTicketModal = (ticketType, edit = false) => {
 		taskModalState.modal_title.value = `Edit "${ticketType}" Ticket`
 		useTicketModal().openEditTicket()
 	} else {
+		clearTaskModalState()
 		taskModalState.type.value = keys[ticketType]
 		taskModalState.modal_title.value = `Create "${ticketType}" Ticket`
 		useTicketModal().openCreateTicket()
 	}
+}
+
+export const useDeleteTicket = () => {
+	const loading = ref(false)
+	const deleteTicket = (data, title) => {
+		loading.value = true
+		const index = dummyData.value[keys[title]].findIndex((item) => item.id === data.id)
+		dummyData.value[keys[title]].splice(index, 1)
+		loading.value = false
+	}
+	return { loading, deleteTicket }
 }
