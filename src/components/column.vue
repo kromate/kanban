@@ -12,6 +12,7 @@
 			<template #item="{element}">
 				<ColumnCard
 					:key="element.id"
+					:title="title"
 					:card="element"
 				/>
 			</template>
