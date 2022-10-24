@@ -1,4 +1,4 @@
-export interface boardType {
+export type boardType = {
 	id: string;
 	title: string;
 	desc: string;
@@ -6,7 +6,7 @@ export interface boardType {
 	todo: taskType[];
 	inprogress: taskType[];
 	done: taskType[];
-}
+} | Record<string, never>
 
 export type levelType = 1 | 2 | 3;
 export type titleType = 'Backlog' | 'To do' | 'In progress' | 'Done';
