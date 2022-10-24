@@ -45,7 +45,7 @@ export const useEditTicket = () => {
 	const loading = ref(false)
 	const openEditTicket = (data, title) => {
 		loading.value = true
-		taskModalState.type.value = title
+		taskModalState.type.value = keys[title]
 		taskModalState.id.value = data.id
 		taskModalState.title.value = data.title
 		taskModalState.desc.value = data.desc
@@ -57,6 +57,8 @@ export const useEditTicket = () => {
 
 	const editTicket = () => {
 		loading.value = true
+		console.log(taskModalState.type.value)
+		console.log(dummyData.value[taskModalState.type.value])
 		const index = dummyData.value[taskModalState.type.value].findIndex((item) => item.id === taskModalState.id.value)
 		dummyData.value[taskModalState.type.value][index].title = taskModalState.title.value
 		dummyData.value[taskModalState.type.value][index].desc = taskModalState.desc.value
@@ -66,7 +68,7 @@ export const useEditTicket = () => {
 		useTicketModal().closeEditTicket()
 		clearTaskModalState()
 	}
-	return { loading, openEditTicket, taskModalState }
+	return { loading, openEditTicket, taskModalState, editTicket }
 }
 
 export const openTicketModal = (ticketType, edit = false) => {
