@@ -11,7 +11,7 @@
 			<button class="modal-btn" @click="useTicketModal().closeDeleteConfirmation()">
 				Cancel
 			</button>
-			<button class="modal-btn bg-red">
+			<button class="modal-btn bg-red" @click="deleteTicket">
 				Delete
 			</button>
 		</div>
@@ -23,7 +23,7 @@ import Modal from '@/components/core/modal/Modal.vue'
 import { useDeleteTicket } from '@/composables/ticket'
 import { useTicketModal } from '@/composables/core/modals'
 
-const { loading, taskModalState } = useDeleteTicket()
+const { deleteTicket, loading, taskModalState } = useDeleteTicket()
 </script>
 
 <style>
