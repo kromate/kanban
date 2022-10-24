@@ -35,7 +35,8 @@ const props = defineProps({
 })
 
 const close = (e) => {
-if (e.target.className.includes('bg-modal')) return closeModal()
+	console.log()
+if (typeof e.target.className === 'string' && e.target.className.includes('bg-modal')) return closeModal()
 }
 
 const closeModal = () => {

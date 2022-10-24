@@ -1,7 +1,7 @@
 <template>
 	<div :class="[cardColorPicker(card.level), 'column-card']">
 		<icon name="edit" class="column-card-icon" @click="openEditTicket(card, title)" />
-		<icon name="delete" class="column-card-icon-del" @click="openEditTicket(card, title)" />
+		<icon name="delete" class="column-card-icon-del" @click="openDeleteTicket(card, title)" />
 		<h3 class="column-card-title">
 			{{ card.title }}
 		</h3>
@@ -16,9 +16,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useEditTicket } from '@/composables/ticket'
+import { useEditTicket, useDeleteTicket } from '@/composables/ticket'
 
 const { openEditTicket, loading } = useEditTicket()
+const { openDeleteTicket } = useDeleteTicket()
 
 defineProps({
 	title: {

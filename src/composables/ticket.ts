@@ -85,11 +85,15 @@ export const openTicketModal = (ticketType, edit = false) => {
 
 export const useDeleteTicket = () => {
 	const loading = ref(false)
-	const deleteTicket = (data, title) => {
+	const openDeleteTicket = (data, title) => {
 		loading.value = true
-		const index = dummyData.value[keys[title]].findIndex((item) => item.id === data.id)
-		dummyData.value[keys[title]].splice(index, 1)
+		taskModalState.id.value = data.id
+		taskModalState.title.value = title
+		taskModalState.modal_title.value = `Delete "${data.title}" Ticket`
+		useTicketModal().openDeleteConfirmation()
+		// const index = dummyData.value[keys[title]].findIndex((item) => item.id === data.id)
+		// dummyData.value[keys[title]].splice(index, 1)
 		loading.value = false
 	}
-	return { loading, deleteTicket }
+	return { loading, openDeleteTicket, taskModalState }
 }
