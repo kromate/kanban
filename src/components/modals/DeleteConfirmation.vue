@@ -3,74 +3,27 @@
 		modal="$atts.modal"
 		:title="taskModalState.modal_title.value"
 	>
-		<form
-			class="task-modal"
-			@submit.prevent="createTicket"
-		>
-			<div class="field">
-				<label for="title" class="modal-label">Title </label>
-				<input
-					id="title"
-					v-model="taskModalState.title.value"
-					required
-					type="text"
-					placeholder="Enter Title"
-					class="modal-input"
-				>
-			</div>
-			<div class="field">
-				<label for="description" class="modal-label">Description </label>
-				<textarea
-					id="description"
-					v-model="taskModalState.desc.value"
-					required
-					rows="3"
-					type="text"
-					placeholder="Enter Description"
-					class="modal-input"
-				/>
-			</div>
-			<div class="field">
-				<label for="level" class="modal-label">Level </label>
-				<select id="level" v-model="taskModalState.level.value" name="level" class="modal-input" required>
-					<option disabled select class="text-line" value="" selected>
-						Select Level
-					</option>
-					<option value="1">
-						level 1 (critical)
-					</option>
-					<option value="2">
-						level 2 (important)
-					</option>
-					<option value="3">
-						level 3 (normal)
-					</option>
-				</select>
-			</div>
-			<div class="field">
-				<label for="assignee" class="modal-label">Assignee </label>
-				<input
-					id="assignee"
-					v-model="taskModalState.assignee.value"
-					required
-					type="text"
-					placeholder="Enter Assignee"
-					class="modal-input"
-				>
-			</div>
+		<p class="text-clear text-lg tracking-[0.1rem] ">
+			Are you sure you want to delete this ticket?
+		</p>
 
-			<button class="modal-btn">
-				<span v-if="!loading"> Create</span>  <Spinner v-else />
+		<div class="grid grid-cols-2 gap-4">
+			<button class="modal-btn" @click="useTicketModal().closeDeleteConfirmation()">
+				Cancel
 			</button>
-		</form>
+			<button class="modal-btn bg-red">
+				Delete
+			</button>
+		</div>
 	</Modal>
 </template>
 ~~/src/composables/ticket
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
 import { useDeleteTicket } from '@/composables/ticket'
+import { useTicketModal } from '@/composables/core/modals'
 
-const { createTicket, loading, taskModalState } = useDeleteTicket()
+const { loading, taskModalState } = useDeleteTicket()
 </script>
 
 <style>

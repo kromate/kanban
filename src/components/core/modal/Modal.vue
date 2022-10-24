@@ -6,10 +6,10 @@
 			@click="close"
 		>
 			<div class="modal">
-				<span class="modal-title flex justify-between w-full items-center">
+				<header class="modal-title flex justify-between w-full items-center">
 					{{ title }}
 					<icon name="close" class="text-white w-7 cursor-pointer" @click="closeModal()" />
-				</span>
+				</header>
 				<div class="w-full">
 					<slot />
 				</div>
