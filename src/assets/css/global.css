@@ -4,8 +4,9 @@
     font-family: 'Lato', sans-serif;
 }
 
-html {
-    @apply bg-night;
+html,
+body {
+    @apply bg-night overflow-x-hidden;
 }
 
 select {

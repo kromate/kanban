@@ -1,71 +1,62 @@
 <template>
 	<transition name="fade" appear>
-		<div v-if="active" class="flex min-h-screen items-center justify-center flex-col bg-[#2a2828a5] fixed z-50 inset-0 bg">
-			<div class="load text-6xl">
-				<div>G</div>
-				<div>N</div>
-				<div>I</div>
-				<div>D</div>
-				<div>A</div>
-				<div>O</div>
-				<div>L</div>
+		<div v-if="active" class="fixed inset-0 h-screen w-screen bg-white flex justify-center items-center flex-col z-[10000]">
+			<div class="waviy text">
+				<span style="--i:1">L</span>
+				<span style="--i:2">O</span>
+				<span style="--i:3">A</span>
+				<span style="--i:4">D</span>
+				<span style="--i:5">I</span>
+				<span style="--i:6">N</span>
+				<span style="--i:7">G</span>
 			</div>
 
-			<p class="text-2xl absolute mt-40 text-center max-w-[45rem] px-4 text-white">
+			<p class="text text-2xl mt-20 text-center max-w-[45rem] px-4">
 				{{ message }}
 			</p>
 		</div>
 	</transition>
 </template>
 
-<script lang="ts" setup>
+<script>
 import { useLoading } from '@/composables/useNotification'
-const { active, message } = useLoading()
+export default {
+	name: 'LoaderComponent',
+	setup() {
+		const { active, message } = useLoading()
+
+		return { active, message }
+	}
+}
 </script>
 
 <style scoped>
-.bg{
-    backdrop-filter: blur(5px);
+.fade-enter, .fade-leave-to{
+opacity: 0;
 }
-
-.load {
-  position:absolute;
-  width:600px;
-  height:36px;
-  left:50%;
-  top:40%;
-  margin-left:-300px;
-  overflow:visible;
-  user-select:none;
-  cursor:default;
-  font-size: 2rem;
-  font-weight: 600;
+.fade-enter-active, .fade-leave-active{
+	transition: all .35s ease;
 }
-
-.load div {
-  position:absolute;
-  width:20px;
-  height:36px;
-  opacity:0;
-  font-family:'Poppins', Arial, sans-serif;
-  animation:move 2s linear infinite;
-  transform:rotate(180deg);
-  font-size: 2.5rem;
-  font-weight: 900;
-  color:#6CD3FF;
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 60px;
 }
+.waviy span {
 
-.load div:nth-child(2) { animation-delay:0.2s;}
-.load div:nth-child(3) { animation-delay:0.4s;}
-.load div:nth-child(4) { animation-delay:0.6s;}
-.load div:nth-child(5) { animation-delay:0.8s;}
-.load div:nth-child(6) { animation-delay:1s;}
-.load div:nth-child(7) { animation-delay:1.2s; }
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i));
 
-@keyframes move {
-  0% {left:0; opacity:0; }
-	35% {left: 41%; transform:rotate(0deg);	opacity:1;}
-	65% {	left:59%; transform:rotate(0deg); opacity:1;}
-	100% {left:100%; 	transform:rotate(-180deg); opacity:0;}
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
 }
 </style>
