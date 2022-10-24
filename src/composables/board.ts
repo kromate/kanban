@@ -42,7 +42,7 @@ export const useCreateBoard = () => {
 	return { createBoard, formBoardData, loading }
 }
 
-const KanbanData: Ref<boardType> = useStorage('KanbanData', {})
+export const KanbanData: Ref<boardType> = useStorage('KanbanData', {})
 
 export const getBoard = () => {
     const loading = ref(false)

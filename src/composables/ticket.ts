@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import { useTicketModal } from './core/modals'
-import { dummyData, keys } from '@/helper/data'
+import { KanbanData } from './board'
+import { keys } from '@/helper/data'
 import { levelType } from '@/helper/type'
 
 const taskModalState = {
@@ -27,7 +28,7 @@ export const useTicket = () => {
 	const createTicket = () => {
 		loading.value = true
 		//
-		dummyData.value[taskModalState.type.value].push({
+		KanbanData.value[taskModalState.type.value].push({
 			id: uuidv4(),
 			title: taskModalState.title.value,
 			desc: taskModalState.desc.value,
@@ -57,11 +58,11 @@ export const useEditTicket = () => {
 
 	const editTicket = () => {
 		loading.value = true
-		const index = dummyData.value[taskModalState.type.value].findIndex((item) => item.id === taskModalState.id.value)
-		dummyData.value[taskModalState.type.value][index].title = taskModalState.title.value
-		dummyData.value[taskModalState.type.value][index].desc = taskModalState.desc.value
-		dummyData.value[taskModalState.type.value][index].level = Number(taskModalState.level.value)
-		dummyData.value[taskModalState.type.value][index].assignee = taskModalState.assignee.value
+		const index = KanbanData.value[taskModalState.type.value].findIndex((item) => item.id === taskModalState.id.value)
+		KanbanData.value[taskModalState.type.value][index].title = taskModalState.title.value
+		KanbanData.value[taskModalState.type.value][index].desc = taskModalState.desc.value
+		KanbanData.value[taskModalState.type.value][index].level = Number(taskModalState.level.value)
+		KanbanData.value[taskModalState.type.value][index].assignee = taskModalState.assignee.value
 		loading.value = false
 		useTicketModal().closeEditTicket()
 		clearTaskModalState()
@@ -93,8 +94,8 @@ export const useDeleteTicket = () => {
 		loading.value = false
 	}
 	const deleteTicket = () => {
-		const index = dummyData.value[keys[taskModalState.title.value]].findIndex((item) => item.id === taskModalState.id.value)
-		dummyData.value[keys[taskModalState.title.value]].splice(index, 1)
+		const index = KanbanData.value[keys[taskModalState.title.value]].findIndex((item) => item.id === taskModalState.id.value)
+		KanbanData.value[keys[taskModalState.title.value]].splice(index, 1)
 		useTicketModal().closeDeleteConfirmation()
 	}
 	return { deleteTicket, loading, openDeleteTicket, taskModalState }
