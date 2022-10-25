@@ -1,3 +1,5 @@
+import { gsap } from 'gsap'
+
 export const useSlideUpAnimation = () => {
     const beforeEnter = (el) => {
 	el.style.opacity = 0

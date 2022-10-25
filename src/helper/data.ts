@@ -63,3 +63,15 @@ export const keys = {
 	'In progress': 'inprogress',
 	Done: 'done'
 }
+
+export const updateData = (e) => {
+const changedArray = keys[e.type]
+dummyData.value[changedArray] = e.data
+}
+
+ export const columns = [
+	{ title: 'Backlog', id: 'backlog' },
+	{ title: 'To do', id: 'todo' },
+	{ title: 'In progress', id: 'inprogress' },
+	{ title: 'Done', id: 'done' }
+]

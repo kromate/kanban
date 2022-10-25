@@ -16,19 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { getBoard } from '@/composables/board'
+import { getBoard, updateData } from '@/composables/board'
+import { columns } from '@/helper/data'
 
-const updateData = (e) => {
-const changedArray = keys[e.type]
-KanbanData.value[changedArray] = e.data
-}
-
-const columns = [
-	{ title: 'Backlog', id: 'backlog' },
-	{ title: 'To do', id: 'todo' },
-	{ title: 'In progress', id: 'inprogress' },
-	{ title: 'Done', id: 'done' }
-]
 const id = useRoute().params.id
 const { KanbanData, fetchedData } = getBoard()
 

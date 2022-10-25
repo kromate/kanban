@@ -55,21 +55,3 @@ definePageMeta({
 	layout: 'default'
 })
 </script>
-
-<style scoped>
-.title {
-	text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
-		-2px -2px 0 #000;
-}
-
-.slideUp-enter-from,
-.slideUp-leave-to {
-	opacity: 0;
-	transform: translateY(500px);
-}
-
-.slideUp-enter-active,
-.slideUp-leave-active {
-	transition: all 0.75s ease;
-}
-</style>

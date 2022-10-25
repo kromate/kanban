@@ -15,18 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { dummyData, keys } from '@/helper/data'
-const updateData = (e) => {
-const changedArray = keys[e.type]
-dummyData.value[changedArray] = e.data
-}
-
-const columns = [
-	{ title: 'Backlog', id: 'backlog' },
-	{ title: 'To do', id: 'todo' },
-	{ title: 'In progress', id: 'inprogress' },
-	{ title: 'Done', id: 'done' }
-]
+import { dummyData, keys, updateData, columns } from '@/helper/data'
 
 definePageMeta({
 	layout: 'default'

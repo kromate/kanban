@@ -6,6 +6,7 @@ import { useBoardModal } from './core/modals'
 import { boardType } from '@/helper/type'
 import { useUser } from '@/composables/auth/user'
 import { saveToFirestore, getSingleFirestoreDocument, getFirestoreUserCollection, deleteFirestoreDocument } from '@/firebase/firestore'
+import { keys } from '@/helper/data'
 
 const { user } = useUser()
 export const useCreateBoard = () => {
@@ -63,7 +64,6 @@ export const getUserBoard = () => {
     const fetchedData = async () => {
         useLoading().openLoading('Loading your boards...')
         result.value = await getFirestoreUserCollection('boards')
-        console.log(result.value)
         useLoading().closeLoading()
     }
 
@@ -71,11 +71,38 @@ export const getUserBoard = () => {
 }
 
 export const useDeleteBoard = () => {
-    const deleteBoard = async (id:string) => {
-        useLoading().openLoading('Loading your boards...')
-        await deleteFirestoreDocument('boards', id)
+    const deleteBoard = async (id: string, result) => {
+        useLoading().openLoading('Deleting the board...')
+        try {
+            await deleteFirestoreDocument('boards', id)
+            useAlert().openAlert('Board deleted successfully')
+        } catch (e) {
+            useAlert().openAlert('Something went wrong, couldn\'t delete Board')
+        }
+
         useLoading().closeLoading()
     }
 
     return { deleteBoard }
+}
+
+export const useUpdateBoard = () => {
+    const updateBoard = async (id: string, data: boardType) => {
+        useLoading().openLoading('Updating the board...')
+        try {
+            await saveToFirestore('boards', id, data)
+            useAlert().openAlert('Board updated successfully')
+        } catch (e) {
+            useAlert().openAlert('Something went wrong, couldn\'t update Board')
+        }
+
+        useLoading().closeLoading()
+    }
+
+    return { updateBoard }
+}
+
+export const updateData = (e) => {
+const changedArray = keys[e.type]
+KanbanData.value[changedArray] = e.data
 }
