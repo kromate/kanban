@@ -106,3 +106,7 @@ export const updateData = (e) => {
 const changedArray = keys[e.type]
 KanbanData.value[changedArray] = e.data
 }
+
+export const demoMode = () => {
+useAlert().openAlert('This feature is not available in demo mode')
+}

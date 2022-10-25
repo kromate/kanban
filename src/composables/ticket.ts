@@ -10,7 +10,7 @@ const taskModalState = {
 	modal_title: ref(''),
 	title: ref(''),
 	desc: ref(''),
-	level: ref<levelType>(),
+	level: ref<levelType>(''),
 	assignee: ref('')
 }
 

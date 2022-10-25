@@ -8,7 +8,7 @@ export type boardType = {
 	done: taskType[];
 } | Record<string, never>
 
-export type levelType = 1 | 2 | 3;
+export type levelType = '' | 1 | 2 | 3;
 export type titleType = 'Backlog' | 'To do' | 'In progress' | 'Done';
 
 interface taskType {
