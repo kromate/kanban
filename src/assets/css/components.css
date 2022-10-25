@@ -55,12 +55,21 @@
         @apply flex flex-col w-full gap-2 my-4;
     }
     .home-btn {
-        @apply rounded px-4 py-3 bg-primary text-clear  mt-6 flex justify-center w-[400px] max-w-[85%];
+        @apply rounded px-8 py-3 bg-primary text-clear  mt-6 flex justify-center w-[400px] max-w-[85%];
     }
     .home-title {
         @apply md:text-3xl text-2xl font-bold text-clear  tracking-wider mb-4 w-[600px] max-w-[85%];
     }
     .home-desc {
         @apply md:text-xl text-sm text-clear w-[600px] max-w-[85%];
+    }
+    .center {
+        @apply flex justify-center items-center;
+    }
+    .center-col {
+        @apply flex flex-col justify-center items-center;
+    }
+    .board {
+        @apply overflow-hidden rounded-md shadow-xl shadow-primary bg-primary p-4 border border-clear w-[22rem] max-w-[100%] text-clear;
     }
 }

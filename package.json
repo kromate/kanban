@@ -40,6 +40,7 @@
 		"vite-plugin-eslint": "^1.7.0"
 	},
 	"dependencies": {
+		"@lottiefiles/lottie-player": "^1.6.0",
 		"@vueuse/core": "^9.3.1",
 		"@vueuse/nuxt": "^9.3.1",
 		"firebase": "^9.12.1",

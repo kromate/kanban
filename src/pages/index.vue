@@ -25,7 +25,7 @@
 					<nuxt-link to="/demo" class="home-btn">
 						Demo
 					</nuxt-link>
-					<a href="https://github.com/kromate/Timeline-Creator" target="_blank" class="home-btn">
+					<a href="https://github.com/kromate/kanban" target="_blank" class="home-btn">
 						Github
 					</a>
 

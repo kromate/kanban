@@ -60,7 +60,7 @@ export const getUserBoard = () => {
     const loading = ref(false)
     const result = ref([])
 
-    const fetchedData = async (id: string) => {
+    const fetchedData = async () => {
         useLoading().openLoading('Loading your boards...')
         result.value = await getFirestoreUserCollection('boards')
         console.log(result.value)
