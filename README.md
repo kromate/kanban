@@ -8,9 +8,14 @@ A simple Kanban Board built with typescript, Nuxt 3, composition API, Tailwind, 
 
 ```cmd
 yarn install
+touch .env
 ```
-
-
+- add your API keys to the .env file, you can use [] to test
+- then run
+```cmd
+yarn dev
+```
+- your application should be running on `http://localhost:3000/ `
 ## Contribution Guidelines
 
 ### Instructions
