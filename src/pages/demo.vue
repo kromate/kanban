@@ -9,7 +9,14 @@
 			</h3>
 		</header>
 		<main class="grid grid-cols-4 gap-6 justify-center items-start">
-			<Column v-for="column in columns" :key="column.title" :title="column.title" :cards="dummyData[column.id]" @change="updateData" />
+			<Column
+				v-for="column in columns"
+				:key="column.title"
+				:title="column.title"
+				:cards="dummyData[column.id]"
+				:demo="true"
+				@change="updateData"
+			/>
 		</main>
 	</div>
 </template>
