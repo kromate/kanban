@@ -5,7 +5,7 @@ import { useAlert, useLoading } from './core/useNotification'
 import { useBoardModal } from './core/modals'
 import { boardType } from '@/helper/type'
 import { useUser } from '@/composables/auth/user'
-import { saveToFirestore, getSingleFirestoreDocument } from '@/firebase/firestore'
+import { saveToFirestore, getSingleFirestoreDocument, getFirestoreUserCollection } from '@/firebase/firestore'
 
 const { user } = useUser()
 export const useCreateBoard = () => {
@@ -54,4 +54,18 @@ export const getBoard = () => {
     }
 
     return { fetchedData, KanbanData }
+}
+
+export const getUserBoard = () => {
+    const loading = ref(false)
+    const result = ref([])
+
+    const fetchedData = async (id: string) => {
+        useLoading().openLoading('Loading your boards...')
+        result.value = await getFirestoreUserCollection('boards')
+        console.log(result.value)
+        useLoading().closeLoading()
+    }
+
+    return { fetchedData, result }
 }

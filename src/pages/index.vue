@@ -19,7 +19,7 @@
 					<button class="home-btn" @click="useBoardModal().openCreateBoard()">
 						Create Board
 					</button>
-					<nuxt-link v-if="isLoggedIn" :to="`/user/${user}`" class="home-btn">
+					<nuxt-link v-if="isLoggedIn" to="/myboard" class="home-btn">
 						My Boards
 					</nuxt-link>
 					<nuxt-link to="/demo" class="home-btn">
@@ -58,7 +58,7 @@ definePageMeta({
                         -2px -2px 0 #000;
         }
 
-		.slideUp-enter,
+.slideUp-enter-from,
 .slideUp-leave-to{
 opacity: 0;
 transform: translateY(500px);

@@ -6,7 +6,7 @@
 		>
 			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0" />
 			<svg
-				class="w-6 h-6 text-clear absolute right-1 top-0 cursor-pointer text-xl"
+				class="w-4 h-4 text-clear absolute right-1 top-0 cursor-pointer text-xl"
 				fill="none"
 				stroke="currentColor"
 				viewBox="0 0 24 24"

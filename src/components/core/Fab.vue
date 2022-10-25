@@ -11,8 +11,6 @@
 	</div>
 </template>
 
-<script setup lang="ts"></script>
-
 <style scoped>
 .adminActions {
   position: fixed;
@@ -98,5 +96,4 @@
       visibility: visible;
     }
 
-Resources
 </style>

@@ -10,9 +10,10 @@ import {
   query, where
 } from 'firebase/firestore'
 import { app } from './init'
-
+import { useUser } from '@/composables/auth/user'
 export const db = getFirestore(app)
 
+const { id } = useUser()
 export const saveToFirestore = async (
   collection: string,
   id: string = uuidv4(),
@@ -34,9 +35,9 @@ export const getSingleFirestoreDocument = async (
 	}
 }
 
-export const getFirestoreCollection = async (collectionName: string) => {
+export const getFirestoreUserCollection = async (collectionName: string) => {
   const collectionRef = collection(db, collectionName)
-  const q = query(collectionRef, limit(50))
+  const q = query(collectionRef, limit(50), where('usedId', '==', id))
   const result = []
 	const querySnapshot = await getDocs(q)
 	querySnapshot.forEach((doc) => {
