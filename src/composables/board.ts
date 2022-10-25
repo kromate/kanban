@@ -87,19 +87,21 @@ export const useDeleteBoard = () => {
 }
 
 export const useUpdateBoard = () => {
+    const loading = ref(false)
     const updateBoard = async (id: string, data: boardType) => {
-        useLoading().openLoading('Updating the board...')
+        loading.value = true
+        // useLoading().openLoading('')
         try {
-            await saveToFirestore('boards', id, data)
+            await saveToFirestore('boards', KanbanData.value.id, KanbanData.value)
             useAlert().openAlert('Board updated successfully')
         } catch (e) {
             useAlert().openAlert('Something went wrong, couldn\'t update Board')
         }
-
-        useLoading().closeLoading()
+        loading.value = false
+        // useLoading().closeLoading()
     }
 
-    return { updateBoard }
+    return { updateBoard, loading }
 }
 
 export const updateData = (e) => {

@@ -18,13 +18,16 @@
 <script setup lang="ts">
 import { getBoard, updateData } from '@/composables/board'
 import { columns } from '@/helper/data'
+import { enableReload, disableReload } from '@/composables/useUtils'
 
 const id = useRoute().params.id
 const { KanbanData, fetchedData } = getBoard()
 
 onMounted(async () => {
+	disableReload()
 	await fetchedData(id)
 })
+onUnmounted(enableReload)
 </script>
 
 <style scoped></style>

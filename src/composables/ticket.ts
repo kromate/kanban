@@ -19,7 +19,7 @@ const clearTaskModalState = () => {
 	taskModalState.modal_title.value = ''
 	taskModalState.title.value = ''
 	taskModalState.desc.value = ''
-	taskModalState.level.value = null
+	taskModalState.level.value = ''
 	taskModalState.assignee.value = ''
 }
 
