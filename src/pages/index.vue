@@ -1,7 +1,9 @@
 <template>
 	<main class="w-full h-screen">
 		<transition name="slideUp" appear>
-			<div class="container mx-auto flex flex-col justify-center items-center h-full text-center">
+			<div
+				class="container mx-auto flex flex-col justify-center items-center h-full text-center"
+			>
 				<header class="mb-8 flex flex-col justify-center items-center">
 					<h1 class="home-title title">
 						Welcome to Vue KanBan
@@ -11,7 +13,7 @@
 					</p>
 				</header>
 
-				<div class=" w-full flex flex-col justify-center items-center">
+				<div class="w-full flex flex-col justify-center items-center">
 					<button v-if="!isLoggedIn" class="home-btn" @click="googleSignin">
 						Sign in
 					</button>
@@ -25,7 +27,11 @@
 					<nuxt-link to="/demo" class="home-btn">
 						Demo
 					</nuxt-link>
-					<a href="https://github.com/kromate/kanban" target="_blank" class="home-btn">
+					<a
+						href="https://github.com/kromate/kanban"
+						target="_blank"
+						class="home-btn"
+					>
 						Github
 					</a>
 
@@ -51,21 +57,19 @@ definePageMeta({
 </script>
 
 <style scoped>
-    .title {
-            text-shadow: -2px 2px 0 #000,
-                          2px 2px 0 #000,
-                         2px -2px 0 #000,
-                        -2px -2px 0 #000;
-        }
+.title {
+	text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+		-2px -2px 0 #000;
+}
 
 .slideUp-enter-from,
-.slideUp-leave-to{
-opacity: 0;
-transform: translateY(500px);
+.slideUp-leave-to {
+	opacity: 0;
+	transform: translateY(500px);
 }
 
 .slideUp-enter-active,
-.slideUp-leave-active{
-    transition: all 0.75s ease;
+.slideUp-leave-active {
+	transition: all 0.75s ease;
 }
 </style>

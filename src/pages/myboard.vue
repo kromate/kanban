@@ -33,18 +33,22 @@
 				<div class="flex gap-4 mt-4">
 					<nuxt-link
 						class=" bg-black text-clear px-3 cursor-pointer rounded-md"
-						:to="`/timeline/${board.id}`"
+						:to="`/board/${board.id}`"
 					>
 						edit
 					</nuxt-link>
-					<span
+					<button
 						class=" bg-black text-clear px-3 cursor-pointer rounded-md"
 						@click="shareBoard(board)"
-					>Share</span>
-					<span
+					>
+						Share
+					</button>
+					<button
 						class=" bg-black text-clear px-3 cursor-pointer rounded-md"
-						@click="delTimeline(board.id)"
-					>Delete</span>
+						@click="delBoard(board)"
+					>
+						Delete
+					</button>
 				</div>
 			</article>
 		</transition-group>
@@ -70,60 +74,26 @@
 
 <script lang="ts" setup>
 import { gsap } from 'gsap'
-import { useShare, useClipboard } from '@vueuse/core'
+
 import { useUser } from '@/composables/auth/user'
 import { useAlert } from '@/composables/core/useNotification'
 import { getUserBoard } from '@/composables/board'
 import { useBoardModal } from '@/composables/core/modals'
 import '@lottiefiles/lottie-player'
+import { useShareUtil } from '@/composables/core/share'
+import { useSlideUpAnimation } from '@/composables/core/animations'
 
 definePageMeta({
 	layout: 'default',
 	middleware: 'is-authenticated'
 })
 
-const { fetchedData, result } = getUserBoard()
-
-const source = ref('')
-const { copy } = useClipboard({ source })
-const { share, isSupported } = useShare()
-
 onMounted(async () => {
 	await fetchedData()
 })
-const copyLink = () => {
-	copy()
-	useAlert().openAlert(
-		'Seems something went wrong while trying to share, don\'t worry we copied it to your clipboard '
-	)
-}
-const shareBoard = (board) => {
-	source.value = `${location.href}/${board.id}`
-	if (!isSupported) {
-		copyLink()
-	}
-	try {
-		share({
-			title: board.value.title,
-			text: board.value.desc,
-			url: source.value
-		})
-	} catch {
-		copyLink()
-	}
-}
 
-const beforeEnter = (el) => {
-	el.style.opacity = 0
-	el.style.transform = 'translateY(100px)'
-}
-const enter = (el, done) => {
-	gsap.to(el, {
-		opacity: 1,
-		y: 0,
-		duration: 0.5,
-		onComplete: done,
-		delay: el.dataset.index * 0.1
-	})
-}
+const { fetchedData, result } = getUserBoard()
+const { shareBoard } = useShareUtil()
+const { beforeEnter, enter } = useSlideUpAnimation()
+
 </script>

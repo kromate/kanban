@@ -5,7 +5,7 @@ import { useAlert, useLoading } from './core/useNotification'
 import { useBoardModal } from './core/modals'
 import { boardType } from '@/helper/type'
 import { useUser } from '@/composables/auth/user'
-import { saveToFirestore, getSingleFirestoreDocument, getFirestoreUserCollection } from '@/firebase/firestore'
+import { saveToFirestore, getSingleFirestoreDocument, getFirestoreUserCollection, deleteFirestoreDocument } from '@/firebase/firestore'
 
 const { user } = useUser()
 export const useCreateBoard = () => {
@@ -68,4 +68,14 @@ export const getUserBoard = () => {
     }
 
     return { fetchedData, result }
+}
+
+export const useDeleteBoard = () => {
+    const deleteBoard = async (id:string) => {
+        useLoading().openLoading('Loading your boards...')
+        await deleteFirestoreDocument('boards', id)
+        useLoading().closeLoading()
+    }
+
+    return { deleteBoard }
 }
