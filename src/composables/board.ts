@@ -33,7 +33,6 @@ export const useCreateBoard = () => {
             useRouter().push(`/board/${ID}`)
             useBoardModal().closeCreateBoard()
         } catch (e) {
-            console.log(e)
             useBoardModal().closeCreateBoard()
             useAlert().openAlert('Something went wrong, couldn\'t create Board')
         }
