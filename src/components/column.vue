@@ -12,7 +12,7 @@
 		</header>
 
 		<draggable
-			v-model="cards"
+			v-model="cardArray"
 			group="kanban"
 			:item-key="title"
 			class="flex flex-col gap-4"
@@ -39,6 +39,18 @@ const emit = defineEmits(['change'])
 const updateParent = (e) => {
 	emit('change', { type: props.title, data: props.cards })
 }
+const cardArray = ref([])
+
+onMounted(() => {
+	cardArray.value = props.cards
+})
+
+// watch(props.cards, () => {
+// 	console.log('watching Cards')
+// })
+// watch(cardArray, () => {
+// 	console.log('watching Cards Array')
+// })
 
 const props = defineProps({
 	title: {
