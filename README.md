@@ -35,6 +35,11 @@ yarn dev
 ```cmd
 yarn cy
 ```
-- the above command would start up cypress and then you can select the test you want to run
+- the above command would start up cypress 
+- This application has only e2e test so select that from the cypress menu 
+- Then you can select the test you want to run
+
+### Live URL
+- [http://kanban.kromate.dev/](http://kanban.kromate.dev/)
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
