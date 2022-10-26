@@ -105,8 +105,10 @@ export const useUpdateBoard = () => {
 }
 
 export const updateData = (e) => {
-const changedArray = keys[e.type]
-KanbanData.value[changedArray] = e.data
+    const changedArray = keys[e.type]
+    const newArray = KanbanData.value
+    newArray[changedArray] = e.data
+    KanbanData.value = newArray
 }
 
 export const demoMode = () => {

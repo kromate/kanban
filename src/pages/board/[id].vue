@@ -24,7 +24,7 @@ const id = useRoute().params.id
 const { KanbanData, fetchedData } = getBoard()
 
 onMounted(async () => {
-	disableReload()
+	// disableReload()
 	await fetchedData(id)
 })
 onUnmounted(enableReload)
