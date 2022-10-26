@@ -12,7 +12,7 @@
 		</header>
 
 		<draggable
-			v-model="cards"
+			:list="cards"
 			group="kanban"
 			:item-key="title"
 			class="flex flex-col gap-4"
@@ -36,9 +36,9 @@ import { openTicketModal } from '~~/src/composables/ticket'
 import { KanbanData, demoMode } from '~~/src/composables/board'
 const emit = defineEmits(['change'])
 
-// const updateParent = (e) => {
-// 	emit('change', { type: props.title, data: props.cards })
-// }
+const updateParent = (e) => {
+	emit('change', { type: props.title, data: props.cards })
+}
 
 const props = defineProps({
 	title: {
