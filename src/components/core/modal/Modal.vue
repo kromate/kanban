@@ -64,7 +64,7 @@ const closeModal = () => {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: all .5s ease;
+  transition: all .35s ease;
 }
 .slide-enter-from,
 .slide-leave-to {

@@ -6,19 +6,21 @@ interface globalStateType {
     userString: Ref<string>,
     user: User,
     isLoggedIn: Ref<boolean>
+    id: Ref<string>
 }
 
 const globalState:globalStateType = {
     userString: useStorage('userString', null),
     user: useStorage('userString', '').value ? JSON.parse(useStorage('userString', '').value) as User : undefined,
-    isLoggedIn: useStorage('isLoggedIn', false)
+    isLoggedIn: useStorage('isLoggedIn', false),
+    id: useStorage('id', null)
 }
 
 export const useUser = () => {
     const setUser = (user: User) => {
         globalState.userString.value = JSON.stringify(user) as any
         globalState.user = user
-        id.value = user.uid
+        globalState.id.value = user.uid
         globalState.isLoggedIn.value = true
     }
 
@@ -26,8 +28,8 @@ export const useUser = () => {
         globalState.user = null
         globalState.userString.value = null
         globalState.isLoggedIn.value = false
+        globalState.id.value = null
     }
-    const id = ref(globalState.user?.uid ?? '')
 
-    return { setUser, clearUser, ...globalState, id }
+    return { setUser, clearUser, ...globalState }
 }

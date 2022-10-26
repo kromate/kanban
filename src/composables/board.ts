@@ -8,7 +8,7 @@ import { useUser } from '@/composables/auth/user'
 import { saveToFirestore, getSingleFirestoreDocument, getFirestoreUserCollection, deleteFirestoreDocument } from '@/firebase/firestore'
 import { keys } from '@/helper/data'
 
-const { user } = useUser()
+const { id } = useUser()
 export const useCreateBoard = () => {
     const loading = ref(false)
     const ID = uuidv4()
@@ -27,12 +27,13 @@ export const useCreateBoard = () => {
             inprogress: [],
             done: []
         }
-        const requestData = { ...boardData, userId: user.uid }
+        const requestData = { ...boardData, userId: id.value }
         try {
             await saveToFirestore('boards', ID, requestData)
             useRouter().push(`/board/${ID}`)
             useBoardModal().closeCreateBoard()
-        } catch {
+        } catch (e) {
+            console.log(e)
             useBoardModal().closeCreateBoard()
             useAlert().openAlert('Something went wrong, couldn\'t create Board')
         }
