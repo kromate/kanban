@@ -28,6 +28,13 @@ yarn dev
 - Wait for pull request to merge
 - Celebrate your first step into the open source world and contribute more
 
+### Testing
+- After installation in order to test you have to be running the application on `http://localhost:3000/`
+- once the application is running on port 3000, run 
 
+```cmd
+yarn cy
+```
+- the above command would start up cypress and then you can select the test you want to run
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
