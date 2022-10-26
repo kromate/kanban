@@ -14,17 +14,17 @@
 				</header>
 
 				<div class="w-full flex flex-col justify-center items-center">
-					<button v-if="!isLoggedIn" class="home-btn" @click="googleSignin">
+					<button v-if="!isLoggedIn" id="signin" class="home-btn" @click="googleSignin">
 						Sign in
 					</button>
 
-					<button class="home-btn" @click="useBoardModal().openCreateBoard()">
+					<button v-if="isLoggedIn" class="home-btn" @click="useBoardModal().openCreateBoard()">
 						Create Board
 					</button>
 					<nuxt-link v-if="isLoggedIn" to="/myboard" class="home-btn">
 						My Boards
 					</nuxt-link>
-					<nuxt-link to="/demo" class="home-btn">
+					<nuxt-link id="demo-btn" to="/demo" class="home-btn">
 						Demo
 					</nuxt-link>
 					<a

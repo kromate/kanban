@@ -5,6 +5,7 @@
 				{{ title }}
 			</h1>
 			<icon
+				id="add-btn"
 				name="add"
 				class="column-card-header-icon"
 				@click="demo ? demoMode() : openTicketModal(title)"

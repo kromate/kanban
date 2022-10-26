@@ -2,6 +2,7 @@
 	<transition appear name="slide">
 		<div
 			v-if="active"
+			id="alert"
 			class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4  z-[150] text w-[22rem] bg-primary text-clear"
 		>
 			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0" />
