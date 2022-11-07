@@ -31,6 +31,21 @@
 				/>
 			</div>
 
+			<div class="field">
+				<label for="level" class="modal-label">Privacy</label>
+				<select id="level" v-model="formBoardData.private.value" name="level" class="modal-input" required>
+					<option disabled select class="text-line" value="" selected>
+						Select Privacy
+					</option>
+					<option value="false">
+						Public
+					</option>
+					<option value="true">
+						Private
+					</option>
+				</select>
+			</div>
+
 			<button class="modal-btn" :disabled="loading">
 				<span v-if="!loading"> Create</span>  <Spinner v-else />
 			</button>

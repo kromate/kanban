@@ -14,7 +14,8 @@ export const useCreateBoard = () => {
     const ID = uuidv4()
 	const formBoardData = {
 		title: ref(''),
-		desc: ref('')
+		desc: ref(''),
+		private: ref(false)
 	}
     const createBoard = async () => {
         loading.value = true

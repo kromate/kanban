@@ -1,8 +1,12 @@
 <template>
 	<div>
 		<header class="flex flex-col px-4">
-			<h1 class="board-title">
+			<h1 class="board-title flex gap-4 justify-center items-center">
 				{{ KanbanData.title }}
+				<icon
+					name="edit"
+					class="w-5 cursor-pointer"
+				/>
 			</h1>
 			<h3 class="board-desc">
 				{{ KanbanData.desc }}
