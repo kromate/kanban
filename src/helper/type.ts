@@ -1,6 +1,7 @@
 export type boardType = {
 	id: string;
 	title: string;
+	private: boolean;
 	desc: string;
 	backlog: taskType[];
 	todo: taskType[];

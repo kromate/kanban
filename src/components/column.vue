@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { openTicketModal } from '~~/src/composables/ticket'
-import { KanbanData, demoMode } from '~~/src/composables/board'
+import { demoMode } from '~~/src/composables/board'
 const emit = defineEmits(['change'])
 
 const updateParent = (e) => {

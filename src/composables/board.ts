@@ -23,6 +23,7 @@ export const useCreateBoard = () => {
             id: ID,
             title: formBoardData.title.value,
             desc: formBoardData.desc.value,
+            private: formBoardData.private.value,
             backlog: [],
             todo: [],
             inprogress: [],
@@ -96,7 +97,7 @@ export const useUpdateBoard = () => {
             await saveToFirestore('boards', KanbanData.value.id, KanbanData.value)
             useAlert().openAlert('Board updated successfully')
         } catch (e) {
-            useAlert().openAlert('Something went wrong, couldn\'t update Board')
+            useAlert().openAlert(e.message)
         }
         loading.value = false
         // useLoading().closeLoading()

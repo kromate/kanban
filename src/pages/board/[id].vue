@@ -6,6 +6,7 @@
 				<icon
 					name="edit"
 					class="w-5 cursor-pointer"
+					@click="useBoardModal().openEditBoard()"
 				/>
 			</h1>
 			<h3 class="board-desc">
@@ -23,6 +24,7 @@
 import { getBoard, updateData } from '@/composables/board'
 import { columns } from '@/helper/data'
 import { enableReload, disableReload } from '@/composables/useUtils'
+import { useBoardModal } from '@/composables/core/modals'
 
 const id = useRoute().params.id
 const { KanbanData, fetchedData } = getBoard()

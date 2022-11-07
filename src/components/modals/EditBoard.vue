@@ -5,13 +5,13 @@
 	>
 		<form
 			class="task-modal"
-			@submit.prevent="createBoard"
+			@submit.prevent="useBoardModal().closeEditBoard()"
 		>
 			<div class="field">
 				<label for="title" class="modal-label">Title </label>
 				<input
 					id="title"
-					v-model="formBoardData.title.value"
+					v-model="KanbanData.title"
 					required
 					type="text"
 					placeholder="Enter Title"
@@ -22,7 +22,7 @@
 				<label for="description" class="modal-label">Description </label>
 				<textarea
 					id="description"
-					v-model="formBoardData.desc.value"
+					v-model="KanbanData.desc"
 					required
 					rows="3"
 					type="text"
@@ -33,7 +33,7 @@
 
 			<div class="field">
 				<label for="level" class="modal-label">Privacy</label>
-				<select id="level" v-model="formBoardData.private.value" name="level" class="modal-input" required>
+				<select id="level" v-model="KanbanData.private" name="level" class="modal-input" required>
 					<option disabled select class="text-line" value="" selected>
 						Select Privacy
 					</option>
@@ -46,8 +46,8 @@
 				</select>
 			</div>
 
-			<button class="modal-btn" :disabled="loading">
-				<span v-if="!loading"> Create</span>  <Spinner v-else />
+			<button class="modal-btn">
+				<span> Create</span>
 			</button>
 		</form>
 	</Modal>
@@ -55,7 +55,7 @@
 
 <script setup lang="ts">
 import Modal from '@/components/core/modal/Modal.vue'
-import { useCreateBoard } from '@/composables/board'
+import { KanbanData, useCreateBoard } from '@/composables/board'
+import { useBoardModal } from '@/composables/core/modals'
 
-const { createBoard, loading, formBoardData } = useCreateBoard()
 </script>
