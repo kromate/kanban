@@ -10,7 +10,7 @@ A simple Kanban Board built with typescript, Nuxt 3, composition API, Tailwind, 
 yarn install
 touch .env
 ```
-- add your API keys to the .env file, you can use [] to test
+- add your API keys to the .env file, you can use [AIzaSyDT46a8lkVrRy27ZrH5b8Ge9nGB_4sHc6E] to test
 - then run
 ```cmd
 yarn dev
@@ -41,5 +41,8 @@ yarn cy
 
 ### Live URL
 - [http://kanban.kromate.dev/](http://kanban.kromate.dev/)
+
+### Total time taken
+- 21 hrs (4 days)
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
